@@ -1,0 +1,22 @@
+  
+  <form class="createfolderform" [formGroup]="createFolderForm" (submit)="createFolder()" autocomplete="off" novalidate>
+    <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect button--colored-teal" (click)="close()">
+
+      <i class="material-icons">close</i>
+      </button>
+   <div class="mdl-dialog__content">
+   
+     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size">
+      <input formControlName="folderName"
+      (change)="onInputChange($event)"
+             class="mdl-textfield__input" type="text" id="folderName">
+      <label class="mdl-textfield__label" for="folderName">New Folder</label>
+    </div>
+   </div>
+   <div class="mdl-dialog__actions">
+     <button type="submit" class="mdl-button mdl-js-button mdl-button--raised color--teal" [disabled]="createFolderForm.invalid">Create</button>
+      
+   </div>
+  </form>
+ 
+ 

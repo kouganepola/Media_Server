@@ -1,0 +1,1 @@
+export {UploadformComponent} from './uploadform.component';

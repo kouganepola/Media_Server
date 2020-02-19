@@ -1,0 +1,15 @@
+<div 
+class="mdl-grid mdl-cell mdl-cell--9-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone mdl-cell--top">
+  <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone ">
+    <app-table [path]="path" (popUpForm)="onSelectPopup($event)"></app-table>
+
+    
+    <dialog id="dialog" class="mdl-dialog">
+
+        <app-popupform *ngIf="createFolder" [path]="path" (hideModal)=onHideModal($event) ></app-popupform>
+
+        <app-uploadform *ngIf="uploadFile" [path]="path" (hideModal)=onHideModal($event) ></app-uploadform>
+    </dialog>
+    
+  </div>
+</div>

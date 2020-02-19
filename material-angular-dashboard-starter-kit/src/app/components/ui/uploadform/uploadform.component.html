@@ -1,0 +1,24 @@
+  
+  <form class="uploadfileform" [formGroup]="uploadFileForm" (submit)="uploadFile()" autocomplete="off" novalidate>
+    <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect button--colored-teal" (click)="close()">
+ 
+      <i class="material-icons">close</i>
+      </button>
+    <div class="mdl-dialog__content">
+     
+      
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--file mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" placeholder="File" formControlName="file" type="text" id="uploadFile" readonly/>
+        <div class="mdl-button button--colored-teal mdl-button--icon mdl-button--file">
+          <i class="material-icons">attach_file</i><input  type="file" id="uploadBtn" (change) ="selectFile($event)">
+        </div>
+      </div>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised color--teal" [disabled]="uploadFileForm.invalid">Upload</button>
+       
+    </div>
+    
+   </form>
+  
+  

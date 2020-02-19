@@ -1,0 +1,1 @@
+export  {PopupformComponent} from './popupform.component';

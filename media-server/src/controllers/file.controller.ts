@@ -251,11 +251,28 @@ class FileController{
 
     }
 
-    public async viewDirectoryFiles(ownerID:string,filePath:string){
+    public async viewFiles(ownerID:string,filePath?:string|Object){
+
+        let query =null;
+
+        if(filePath){
+
+            query = {
+               owner:ownerID,
+               path:filePath
+           }
+
+        }else{
+
+             query = {
+                owner:ownerID
+            }
+        }
+
 
         try{
 
-                return await File.find({owner:ownerID,path:filePath});
+                return await File.find(query);
 
 
         }catch(error){

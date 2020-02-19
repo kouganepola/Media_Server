@@ -45,7 +45,10 @@ createFolder() {
         
         //todo:show message
       console.log(res)
+      window.location.reload()
       this.close();
+
+      
       
     
     

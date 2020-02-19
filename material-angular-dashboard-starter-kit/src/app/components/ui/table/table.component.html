@@ -2,14 +2,23 @@
 <base-card-title>
 <div class="mdl-grid">
 <div *ngFor="let folder of title; let index=index">
-  <button class="mdl-button mdl-button--font-increased mdl-js-button mdl-js-ripple-effect color-text--teal" id="folder_{{title.length-1-index}}" (click)="onSelectFolder(index)">
+
+  <button *ngIf="index!=title.length-1" class="mdl-button mdl-button--font-increased mdl-js-button mdl-js-ripple-effect color-text--teal" id="folder{{title.length-1-index}}" (click)="onSelectFolder(index)">
     <i *ngIf="folder==title[0]" class="material-icons">folder</i>
     {{ folder}}
-    <i *ngIf="index===title.length-1" class="material-icons">arrow_drop_down</i>
+  </button>  
+
+  <i *ngIf="index!=title.length-1" class="material-icons">navigate_next</i>
+  <div *ngIf="index===title.length-1">
+
+  <button class="mdl-button mdl-button--font-increased mdl-js-button mdl-js-ripple-effect color-text--teal" id="folder0">
+    <i *ngIf="folder==title[0]" class="material-icons">folder</i>
+    {{ folder}}
+    <i class="material-icons">arrow_drop_down</i>
   </button>  
   <ul 
-class="mdl-menu mdl-list mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp folder-function-dropdown"
-for="folder_0">
+class="mdl-menu mdl-list mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp folder-function-dropdown "
+for="folder0">
 
 <li class="mdl-menu__item mdl-list__item">
     <span class="mdl-list__item-primary-content" (click)=createFolder()>
@@ -26,8 +35,9 @@ for="folder_0">
 </li>
 
 </ul>
- 
-<i *ngIf="index!=title.length-1" class="material-icons">navigate_next</i>
+
+</div>
+
 
 
 
@@ -36,7 +46,6 @@ for="folder_0">
 
 </div>
   <h1 class="mdl-card__title-text" *ngIf="title=='All'">All</h1>
-  
 
 </base-card-title>
 <base-card-body class="no-padding">
@@ -52,14 +61,15 @@ for="folder_0">
       <td class="mdl-data-table__cell--non-numeric">
         {{ item.fileName}}      
       </td>
-      <td class="mdl-data-table__cell--non-numeric">{{ item.fileType}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{ item.size }}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{ item.lastUpdated }}</td>
-      <td class="mdl-data-table__cell--non-numeric"><button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect button--colored-teal" (click)="downloadFile(item)">
+      <td class="mdl-data-table__cell--non-numeric">{{ item.fileTypeDisplayed}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{ item.sizeDisplayed }}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{ item.dateDisplayed }}</td>
+      <td class="mdl-data-table__cell--non-numeric"><button *ngIf="item.fileType!=='folder'" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect button--colored-teal" (click)="downloadFile(item)">
 
         <i class="material-icons">save_alt</i>
         </button>
-        
+      </td>
+      <td class="mdl-data-table__cell--non-numeric">
         <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect button--colored-teal" (click)="deleteFile(item)">
 
           <i class="material-icons">delete</i>

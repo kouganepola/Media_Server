@@ -36,6 +36,8 @@ class Controller {
         });
 
         this.app.get('/view',this.user.getFileDataStream);
+
+        this.app.get('/view-all-files',this.user.viewAllFiles)
     }
 }
 

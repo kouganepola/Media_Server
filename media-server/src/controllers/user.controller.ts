@@ -17,6 +17,7 @@ class UserController{
             this.uploadFile = this.uploadFile.bind(this);
             this.deleteFile = this.deleteFile.bind(this);
             this.viewDirectory = this.viewDirectory.bind(this);
+            this.viewAllFiles=this.viewAllFiles.bind(this);
             this.createFolder = this.createFolder.bind(this);
             this.getFileDataStream = this.getFileDataStream.bind(this);
     }
@@ -221,6 +222,7 @@ class UserController{
         try{
 
 
+           
             const deletedFile = await this.fileManager.deleteFile(req.query.file);
 
             if (deletedFile){
@@ -240,11 +242,36 @@ class UserController{
 
     }
 
+
+    public async viewAllFiles(req:Request,res:Response){
+
+
+        try{
+
+            const files = await this.fileManager.viewFiles(req.query.id,{"$ne":'.'});
+
+
+
+            return res.send(files);
+
+
+        }catch(error){
+
+
+            console.log(error);
+            return res.status(500).send({success:false,message:'Server failed during file retrieval'})
+
+        }
+
+
+
+    }
+
     public async viewDirectory(req:Request,res:Response){
 
         try{
 
-            const files = await this.fileManager.viewDirectoryFiles(req.query._id,req.query.path);
+            const files = await this.fileManager.viewFiles(req.query._id,req.query.path);
 
 
 
@@ -278,7 +305,9 @@ class UserController{
             });
 
 
+            console.log(res)
             downloadStream.pipe(res);
+
 
 
 

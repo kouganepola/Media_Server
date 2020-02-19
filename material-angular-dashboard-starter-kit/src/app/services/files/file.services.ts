@@ -2,9 +2,8 @@ import {HttpHeaders,HttpClient,HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {File} from '../../models/file';
 import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment'
-import {saveAs} from 'file-saver'
-import 'rxjs'
+import {environment} from '../../../environments/environment';
+import 'rxjs';
 
 
 @Injectable({
@@ -77,6 +76,15 @@ export class FileService{
 
         let params = new HttpParams().set('id',fileID);
         return this.http.get(`${this.baseUrl}/view`, {params:params, responseType: 'blob'})
+
+
+
+    }
+
+    searchAllFiles():Observable<File[]>{
+
+        let params = new HttpParams().set('id',localStorage.getItem('id'));
+        return this.http.get<File[]>(`${this.baseUrl}/view-all-files`,{params:params});
 
     }
        

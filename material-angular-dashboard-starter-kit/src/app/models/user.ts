@@ -1,10 +1,17 @@
-
-export class User{
-
-    id?:string;
+export interface IUser{
+    id:string;
     username:string;
     password:Date;
     email:Date;
-    path?:string
+    path:string
+
+}
+export class User{
+
+    id:string;
+    username:string;
+    password:Date;
+    email:Date;
+    path:string
    
 }

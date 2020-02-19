@@ -1,8 +1,10 @@
 import { Component, HostBinding, Output, EventEmitter, Input } from '@angular/core';
 import { UpgradableComponent } from 'theme/components/upgradable';
 import { FileService,AuthService } from '@services/';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { saveAs } from 'file-saver';
+import { File } from 'app/models/file';
+import { map } from 'rxjs/operators';
 
 
 
@@ -22,7 +24,12 @@ export class TableComponent extends UpgradableComponent{
   private _path;
   @Input() set path(path:string){
     this._path = path;
-    this.ngOnInit()
+
+    this.ngOnInit();
+    
+    componentHandler.upgradeDom();
+    
+  
     
   };
 
@@ -34,6 +41,7 @@ export class TableComponent extends UpgradableComponent{
     super();
 
     
+    
     this.authService.userData.subscribe(user => {
       if(user){
   
@@ -42,11 +50,18 @@ export class TableComponent extends UpgradableComponent{
 
     })
 
-    
+    this.router.routeReuseStrategy.shouldReuseRoute=function(){
 
+      return false;
+    }
 
+    this.router.events.subscribe((evt)=>{
+      if(evt instanceof NavigationEnd){
 
-    
+        this.router.navigated=false;
+      }
+
+    })
     
   }
 
@@ -57,6 +72,7 @@ export class TableComponent extends UpgradableComponent{
         
       this.getTableHeaders();
       this.getData();
+      
    
     
     
@@ -86,11 +102,11 @@ export class TableComponent extends UpgradableComponent{
   public getData (){
     
    
-    this.fileService.getUserFiles(this._path).subscribe((files:any)=>{
-
+    this.fileService.getUserFiles(this._path).subscribe((response)=>{
+      let files = response.map(file=> new File(file));
       
       if(files.length!=0){
-       
+       console.log(files)
 
         this.data = files;
         this.setTableTitle();
@@ -118,12 +134,8 @@ export class TableComponent extends UpgradableComponent{
     let folderPath = this.title.slice(0,index+1); 
     this.router.navigate(['..',folderPath.join(":")],{relativeTo:this.activatedRoute});
     
+    
 
-  }
-
-  onSelectFile(){
-
-    console.log(event.target)
   }
 
   deleteFile(file){
@@ -144,6 +156,7 @@ export class TableComponent extends UpgradableComponent{
     
 
     this.fileService.downloadFile(file._id).subscribe(res=>{
+      console.log(res)
       const blob = new Blob([res], { type: file.fileType});
       saveAs(blob,file.fileName);
 
@@ -170,6 +183,8 @@ export class TableComponent extends UpgradableComponent{
 
 
       this.router.navigate(['..',[path,file.fileName].join(":")],{relativeTo:this.activatedRoute});
+      
+    
     }
     else{
 

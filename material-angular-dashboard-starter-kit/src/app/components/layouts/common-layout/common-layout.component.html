@@ -3,16 +3,29 @@
     <base-page-top>
       <div class="mdl-layout-spacer"></div>
 
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable search">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable search" >
         <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
           <i class="material-icons">search</i>
         </label>
 
         <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" id="search"/>
-          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+          <input class="mdl-textfield__input" type="text" id="search" (keyup)="searchFiles($event)" (click)="showAllFiles()"/>
+          <label class="mdl-textfield__label" >Enter your query...</label>
         </div>
       </div>
+
+      <ul
+        class="mdl-menu mdl-list mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp search-dropdown"
+        for="search">
+        <li *ngFor = "let file of filesToDisplay" class="mdl-menu__item mdl-list__item">
+            <span class="mdl-list__item-primary-content" (click)="selectFile()">
+              <i *ngIf="file.fileType==='folder'" class="material-icons mdl-list__item-icon text-color--secondary color-text--teal">folder</i>
+              <i *ngIf="file.fileType!=='folder'" class="material-icons mdl-list__item-icon text-color--secondary color-text--teal">image</i>
+              {{file.fileName}}
+
+            </span>
+        </li>
+      </ul>
 
       <div class="avatar-dropdown" id="icon">
         <span>{{user.username}}</span>

@@ -39,11 +39,11 @@ export class UserManager{
     }
 }
 
-public async logIn(username:string,password:string) {
+public async logIn(username:string,password:string){
     // TODO: send back authToken
 
-
-        try{
+     
+    try{
         const user = await User.findOne({ username }).exec();
 
             if (user) {
@@ -70,6 +70,13 @@ public async logIn(username:string,password:string) {
             throw error;
 
         }
+        
+        
+      
+            
+
+
+       
     }
 
 }

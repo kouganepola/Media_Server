@@ -109,6 +109,7 @@ export class FileController {
         } catch (error) {
 
             // TODO:logError
+          
             return res.status(500).send({ success: false , message: 'Error in viewing files.'});
 
         }

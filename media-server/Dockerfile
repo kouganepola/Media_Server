@@ -1,9 +1,9 @@
 FROM node:10.19.0-alpine
+RUN apk add g++ make python
+RUN mkdir -p /app/backend
+WORKDIR /app/backend
 
-RUN mkdir -p /app/baackend
-WORKDIR /app/baackend
-
-COPY package*json /app/baackend/
+COPY package*.json /app/backend/
 
 RUN npm install
 COPY . /app/backend

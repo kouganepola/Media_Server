@@ -74,7 +74,7 @@ export class CommonLayoutComponent {
         this.filesToDisplay.push(file)
       }
 
-      console.log(this.filesToDisplay)
+     
     });
 
     componentHandler.upgradeDom("mdl-menu__container");

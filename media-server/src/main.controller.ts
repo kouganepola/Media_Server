@@ -26,8 +26,6 @@ export class MainController {
         });
         this.app.post('/auth/signup',(req,res)=>{ this.user.register(req,res)} );
         this.app.post('/auth/login', (req,res)=>{
-
-            res.status(200).send('Welcome');
             this.user.logIn(req,res)} );
 
         this.app.get('/file/files',(req,res)=>{

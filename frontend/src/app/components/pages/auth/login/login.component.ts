@@ -49,7 +49,7 @@ export class LoginComponent extends BlankLayoutCardComponent implements OnInit {
           if (this.loginForm.valid) {
 
             this.authService.login(this.loginForm.getRawValue()).subscribe(res => {
-              console.log(res)
+             
 
               this.router.navigate(['../../app', localStorage.getItem('username'), 'myfiles', localStorage.getItem('root')], { relativeTo: this.route });
 

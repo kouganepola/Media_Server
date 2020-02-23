@@ -17,7 +17,7 @@ export class TableComponent extends UpgradableComponent {
   @HostBinding('class.projects-table') private readonly projectsTable = true;
   
   private tableHeader: String[];
-  private data: File[];
+  private data: File[]=[];
   private user:User;
   private _path:string;
   title: String[];

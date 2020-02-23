@@ -25,9 +25,10 @@ export class AuthService {
 
   public login(user): Observable<any> {
 
-    console.log(user)
+   
     return this.http.post(`${this.url}/auth/login`,user).pipe(
         map((res: { user: any }) => {
+        
           this.user = new User(res.user);
                     
           localStorage.setItem('username',res.user.username);

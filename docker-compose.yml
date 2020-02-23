@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   db:
-    container_name: mongoDB
+    container_name : db
     image: mongo:latest
     restart: always
     volumes:
@@ -11,11 +11,10 @@ services:
       - MONGO_INITDB_DATABASE= MServer
     ports:
       - ${DB_PORT}:${DB_PORT}
-    networks:
-      - network-backend
     
   
   backend:
+    container_name: backend
     build: ./media-server
     expose:
       - ${APP_BACKEND_PORT}
@@ -26,25 +25,19 @@ services:
       - ${APP_BACKEND_PORT}:${APP_BACKEND_PORT}
     depends_on:
       - db
-    networks:
-      - network-backend
-      - network-frontend 
   
   frontend:
+    container_name: frontend
     build: ./frontend
     expose:
-      - "${APP_CLIENT_PORT}"
+      - ${APP_CLIENT_PORT}
     environment:
       BACKEND_URL: http://backend:${APP_BACKEND_PORT}/
     depends_on:
       - backend
     ports:
-      - "${APP_CLIENT_PORT}:${APP_CLIENT_PORT}"
-    networks:
-      - network-frontend
-networks:
-  network-backend:
-  network-frontend:
+      - ${APP_CLIENT_PORT}:${APP_CLIENT_PORT}
+
   
 
 

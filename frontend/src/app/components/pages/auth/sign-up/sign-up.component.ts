@@ -67,16 +67,13 @@ export class SignUpComponent extends BlankLayoutCardComponent implements OnInit 
     if (this.signupForm.valid) {
       this.authService.signup(this.signupForm.getRawValue())
         .subscribe(res =>{ 
-          console.log(res.username)
+        
           this.router.navigate(['../../app',localStorage.getItem('username'),'myfiles',localStorage.getItem('root')])
         },
           error => this.error = error.message);
     }
 
-    else{
-      console.log("hjgjh")
-    }
-    
+   
   }
 
   public onInputChange(event) {

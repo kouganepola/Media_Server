@@ -42,35 +42,33 @@ export class UserController{
 
 public async logIn(req: Request, res: Response) {
     // TODO: send back authToken
-
-
-
+   
+            
     try{
-    const user = await  this.userManager.logIn(req.body.username,req.body.password);
-
-
-        if (user) {
-
-
-
-            return res.send({ success: true, message: 'User logged in successfully', user });
-        }else{
-            return res.status(400).send({ success: false, message: 'Invalid username or password' });
-
-
-        }
-
-
-
-
-
-        }catch(error){
-
-             // TODO:log error
-             return res.status(500).send({ success: false, message: 'Something went wrong. Please retry.' });
-
-        }
-
+        const user = await  this.userManager.logIn(req.body.username,req.body.password);
+    
+    
+            if (user) {
+    
+    
+    
+                return res.send({ success: true, message: 'User logged in successfully', user });
+            }else{
+                return res.status(400).send({ success: false, message: 'Invalid username or password' });
+    
+    
+            }
+    
+    
+    
+    
+    
+            }catch(error){
+    
+                 // TODO:log error
+                 return res.status(500).send({ success: false, message: 'Something went wrong. Please retry.' });
+    
+            }
 
 
 

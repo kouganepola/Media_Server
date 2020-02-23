@@ -1,40 +1,29 @@
 import express from 'express';
 import * as bodyParser from 'body-parser';
 import cors from 'cors';
-import mainController from './main.controller'
+import {MainController} from './main.controller'
 import mongoose from 'mongoose';
 import {initialize} from 'express-openapi';
-import {BACKEND_SERVER_PORT,DB_URL} from './constants'
+import Iconfig from 'config';
 
 
 
-class App{
+export class App{
 
         public app: express.Application;
         public port:number;
-        public controller: mainController;
+        public controller: MainController;
 
 
         constructor(){
             this.app = express();
-            // initialize({
 
-            //     apiDoc: './api-v1/api-doc.js',
-            //     app:this.app,
-            //     consumesMiddleware: {
-            //         'application/json': bodyParser.json(),
-            //         'text/text': bodyParser.text()
-            //       },
-            //     paths: './api-v1/paths',
-            //     routesGlob:'**/*.{ts,js}',
-            //     routesIndexFileRegExp: /(?:index)?\.[tj]s$/
-            //   });
-            this.port = BACKEND_SERVER_PORT;
+            this.port = Iconfig.get('Backend.BACKEND_SERVER_PORT');
             this.configure();
-            this.MongoConfig();
+            this.mongoConfig();
 
 
-            this.controller = new mainController(this.app);
+            this.controller = new MainController(this.app);
 
 
 
@@ -55,7 +44,7 @@ class App{
 
         }
 
-        private MongoConfig(){
+        private mongoConfig(){
             mongoose.Promise = global.Promise;
             // const options = {
             //     autoReconnect: true,
@@ -65,7 +54,9 @@ class App{
             // };
             // mongoose.connect('mongodb://db:27017,db1:27018,db2:27019/MServer',options);
 
-            mongoose.connect(DB_URL,{useNewUrlParser:true});
+            // tslint:disable-next-line
+            
+            mongoose.connect(Iconfig.get('Backend.DB_URL'),{useNewUrlParser:true});
 
 
 
@@ -85,7 +76,7 @@ class App{
 }
 
 
-export default App;
+
 
 
 

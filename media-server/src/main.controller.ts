@@ -1,12 +1,13 @@
 import {Application} from 'express';
 import multer from 'multer';
-import userController from './controllers/user.controller';
+import {FileController} from './file_management/file_controller';
+import {UserController} from './user_management/user_controller';
 
 
 
-
-class Controller {
-    private user:userController;
+export class MainController {
+    private file:FileController;
+    private user:UserController;
     private upload:any;
     private storage:multer.StorageEngine;
 
@@ -14,7 +15,8 @@ class Controller {
 
         this.storage = multer.memoryStorage()
         this.upload = multer({storage:this.storage});
-        this.user = new userController();
+        this.file = new FileController();
+        this.user = new UserController();
         this.routes();
     }
 
@@ -22,23 +24,32 @@ class Controller {
         this.app.route('/').get((req,res)=>{
             res.status(200).send('Welcome');
         });
-        this.app.post('/signup', this.user.register );
-        this.app.post('/login', this.user.logIn);
-        this.app.get('/files',this.user.viewDirectory);
-        this.app.post('/create-folder',this.user.createFolder);
+        this.app.post('/auth/signup',(req,res)=>{ this.user.register(req,res)} );
+        this.app.post('/auth/login', (req,res)=>{
 
-        this.app.post('/upload',this.upload.single('file'),this.user.uploadFile);
-        this.app.delete('/delete',this.user.deleteFile);
+            res.status(200).send('Welcome');
+            this.user.logIn(req,res)} );
 
-        this.app.get('/download',this.user.getFileDataStream);
-        this.app.get('/edit',(req,res)=>{
+        this.app.get('/file/files',(req,res)=>{
+
+            this.file.viewDirectory(req,res)} );
+        this.app.post('/file/create-folder',(req,res)=>{ this.file.createFolder(req,res)} );
+
+        this.app.post('/file/upload',this.upload.single('file'),(req,res)=>{ this.file.uploadFile(req,res)} );
+        this.app.delete('/file/delete',(req,res)=>{ this.file.deleteFile(req,res)} );
+
+        this.app.get('/file/download',(req,res)=>{ this.file.getFileDataStream(req,res)} );
+
+
+        this.app.get('/file/view',(req,res)=>{ this.file.getFileDataStream(req,res)});
+
+        this.app.get('/file/view-all-files',(req,res)=>{
+
+
+            this.file.viewAllFiles(req,res)})
+        this.app.get('/file/edit',(req,res)=>{
             return res.status(200).send('Welcome Edit');
         });
-
-        this.app.get('/view',this.user.getFileDataStream);
-
-        this.app.get('/view-all-files',this.user.viewAllFiles)
     }
 }
 
-export default Controller;

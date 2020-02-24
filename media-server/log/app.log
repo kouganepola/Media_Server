@@ -1,0 +1,252 @@
+[32m[2020-02-24T12:19:08.766] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:19:32.567] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:20:56.525] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:21:05.288] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:21:53.051] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:23:01.675] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:23:03.015] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:23:05.625] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:23:49.299] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:24:27.571] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:25:57.913] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:26:54.640] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:31:54.751] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:31:56.104] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:31:58.926] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:32:31.224] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:34:21.607] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:36:28.562] [INFO] default - [39mInvalid user registration.
+Error: { MongoError: E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }
+    at Function.create (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/error.js:44:12)
+    at toError (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/utils.js:150:22)
+    at coll.s.topology.insert (/home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/operations/common_functions.js:265:39)
+    at /home/koumudi/Documents/Media_Server/media-server/node_modules/mongoose/node_modules/mongodb/lib/core/connection/pool.js:420:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  keyPattern: { username: 1 },
+  keyValue: { username: 'Yasara' },
+  errmsg:
+   'E11000 duplicate key error collection: MServer.users index: username_1 dup key: { username: "Yasara" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[32m[2020-02-24T12:40:10.517] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:48:49.636] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:51:52.490] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:52:10.177] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:52:17.435] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:52:36.275] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:53:20.262] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:54:17.858] [INFO] app - [39mServer started listening at http://localhost:8080
+[32m[2020-02-24T12:54:47.916] [INFO] app - [39mServer started listening at http://localhost:8080

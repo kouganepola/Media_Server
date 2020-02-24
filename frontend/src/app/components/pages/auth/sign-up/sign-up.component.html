@@ -72,7 +72,10 @@
                 Email is invalid.
               </span>
             </div>
+
           </div>
+
+          <div class="full-size color-text--red" *ngIf="error"> {{ error }}</div>
 
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-size"
                [class.is-invalid]="checkbox.invalid "

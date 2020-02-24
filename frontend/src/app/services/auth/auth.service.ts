@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { User } from 'app/models/user';
+import { IServerResponse } from 'app/models/response';
+
 
 @Injectable({
   providedIn: 'root',
@@ -27,8 +29,8 @@ export class AuthService {
 
    
     return this.http.post(`${this.url}/auth/login`,user).pipe(
-        map((res: { user: any }) => {
-        
+        map((res:IServerResponse) => {
+          if(res.success){
           this.user = new User(res.user);
                     
           localStorage.setItem('username',res.user.username);
@@ -39,6 +41,10 @@ export class AuthService {
         
           this.isLogged$.next(true);
           return this.user;
+        }else{
+          return res.message;
+
+        }
         }));
 
   }
@@ -55,14 +61,21 @@ export class AuthService {
   public signup(data) {
     return this.http.post(`${this.url}/auth/signup`, data)
       .pipe(
-        map((res: { user: any, token: string }) => {
-          this.user = new User(res.user);
-          localStorage.setItem('username', res.user.username);
-          localStorage.setItem('email',res.user.email);
-          localStorage.setItem('root',res.user.rootFolder);
-          localStorage.setItem('id',res.user._id);
-          this.isLogged$.next(true);
-          return this.user;
+        map((res:IServerResponse) => {
+
+          if(res.success){
+            this.user = new User(res.user);
+            localStorage.setItem('username', res.user.username);
+            localStorage.setItem('email',res.user.email);
+            localStorage.setItem('root',res.user.rootFolder);
+            localStorage.setItem('id',res.user._id);
+            this.isLogged$.next(true);
+            return this.user;
+
+          }else{
+            return res.message;
+
+          }
         }));
   }
 

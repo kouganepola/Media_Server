@@ -34,8 +34,6 @@ export class PopupformComponent {
   createFolder() {   
           this.fileService.createFolder(this.createFolderForm.getRawValue().folderName,this.path).subscribe(res=>{
               
-              //todo:show message
-              
               const response = res as IServerResponse;
 
               if(response.success){

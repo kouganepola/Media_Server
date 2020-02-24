@@ -2,16 +2,19 @@ import {User} from './user.model';
 import {UserManager} from './user.manager';
 import {Request,Response} from 'express';
 import {FileManager} from '../file_management/file.manager';
+import * as log4js from 'log4js';
 
 
 export class UserController{
 
     private userManager: UserManager;
     private fileManager:FileManager;
+    private logger :any;
 
     constructor(){
         this.userManager = new UserManager();
         this.fileManager = new FileManager();
+        this.logger = log4js.getLogger()
 
     }
 
@@ -32,9 +35,8 @@ export class UserController{
 
     } catch (error) {
 
-        // TODO:logErrors
-
-                return res.set(400).send({ success: false, message: 'Invalid user registration.' });
+        this.logger.info('Invalid user registration.\nError:',error) 
+        return res.set(400).send({ success: false, message: 'Invalid user registration. Duplicate username or email.' });
 
 
     }
@@ -65,7 +67,7 @@ public async logIn(req: Request, res: Response) {
     
             }catch(error){
     
-                 // TODO:log error
+                this.logger.error('Something went wrong..\nError:',error)  
                  return res.status(500).send({ success: false, message: 'Something went wrong. Please retry.' });
     
             }

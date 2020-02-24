@@ -6,6 +6,8 @@ import { AuthService } from '@services/*';
 
 import { BlankLayoutCardComponent } from 'app/components/ui/blank-layout-card';
 import {passwordMatchValidator} from '../../../../utils/utils';
+import { IServerResponse } from 'app/models/response';
+import { User } from 'app/models/user';
 
 @Component({
   selector: 'app-sign-up',
@@ -63,14 +65,32 @@ export class SignUpComponent extends BlankLayoutCardComponent implements OnInit 
 
   public login() {
 
+    
+
     this.error = null;
     if (this.signupForm.valid) {
+      
       this.authService.signup(this.signupForm.getRawValue())
         .subscribe(res =>{ 
-        
+          
+          if (res instanceof User){
           this.router.navigate(['../../app',localStorage.getItem('username'),'myfiles',localStorage.getItem('root')])
+
+          }else{
+            this.password.reset();
+            this.username.reset();
+            this.email.reset();
+            this.confirmPassword.reset();
+            this.checkbox.reset();
+
+            this.error = res;
+
+          }
         },
-          error => this.error = error.message);
+          error => {
+            
+            
+            this.error = error.message});
     }
 
    

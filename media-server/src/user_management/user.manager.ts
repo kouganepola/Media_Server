@@ -28,8 +28,6 @@ export class UserManager{
 
     } catch (error) {
 
-        // TODO:logErrors
-
 
 
                 throw error;
@@ -64,7 +62,7 @@ public async logIn(username:string,password:string){
 
 
         }catch(error){
-            // TODO:log error
+    
 
 
             throw error;

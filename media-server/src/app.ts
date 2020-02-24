@@ -3,8 +3,8 @@ import * as bodyParser from 'body-parser';
 import cors from 'cors';
 import {MainController} from './main.controller'
 import mongoose from 'mongoose';
-import {initialize} from 'express-openapi';
 import Iconfig from 'config';
+import * as log4js from 'log4js';
 
 
 
@@ -13,16 +13,19 @@ export class App{
         public app: express.Application;
         public port:number;
         public controller: MainController;
-
+        private log :any
+        
 
         constructor(){
             this.app = express();
 
             this.port = Iconfig.get('Backend.BACKEND_SERVER_PORT');
+            this.loggerConfig();
             this.configure();
             this.mongoConfig();
-
-
+            
+            this.log = log4js.getLogger('app');
+            
             this.controller = new MainController(this.app);
 
 
@@ -41,6 +44,8 @@ export class App{
 
             // Enables cors
             this.app.use(cors());
+
+            this.app.use(log4js.connectLogger(log4js.getLogger("http"), { level: 'auto' }));
 
         }
 
@@ -63,10 +68,47 @@ export class App{
 
         }
 
+        private loggerConfig(){
+
+            log4js.configure({
+                "appenders": {
+                  "access": {
+                    "type": "dateFile",
+                    "filename": "log/access.log",
+                    "pattern": "-yyyy-MM-dd",
+                    "category": "http"
+                  },
+                  "app": {
+                    "type": "file",
+                    "layout": { 
+                      "type": "colored"
+                    }, 
+                    "filename": "log/app.log",
+                    "maxLogSize": 10485760,
+                    "numBackups": 3
+                  },
+                  "errorFile": {
+                    "type": "file",
+                    "filename": "log/errors.log"
+                  },
+                  "errors": {
+                    "type": "logLevelFilter",
+                    "level": "ERROR",
+                    "appender": "errorFile"
+                  }
+                },
+                "categories": {
+                  "default": { "appenders": [ "app", "errors" ], "level": "DEBUG" },
+                  "http": { "appenders": [ "access"], "level": "DEBUG" }
+                }
+              })
+        }
+
         public listen(){
             this.app.listen(this.port,() =>{
                 // tslint:disable-next-line
                 console.log(`Server listening at http://localhost:${this.port}`);
+                this.log.info(`Server started listening at http://localhost:${this.port}`);
             });
 
         }

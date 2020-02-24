@@ -2,14 +2,18 @@ import { Request, Response } from 'express';
 import MulterRequest from '../utils/multerRequest';
 import { User } from '../user_management/user.model';
 import {FileManager} from './file.manager';
+import * as log4js from 'log4js';
 
 export class FileController {
 
     private fileManager: FileManager;
+    private logger:any;
 
     constructor() {
 
         this.fileManager = new FileManager();
+        this.logger = log4js.getLogger()
+        
 
 
     }
@@ -36,7 +40,7 @@ export class FileController {
             return res.status(400).send({ success: false, message: 'The parent folder does not exist.' });
 
         } catch (error) {
-            // TODO:logError
+            this.logger.error('Something went wrong. Folder could not be created.\nError:',error)            
             return res.status(500).send({ success: false, message: 'Something went wrong. Folder could not be created.' });
         }
     }
@@ -59,7 +63,8 @@ export class FileController {
             }
             return res.status(400).send({ success: false, message: 'The parent folder does not exist.' });
         } catch (error) {
-            // TODO:logError
+            
+            this.logger.error('Something went wrong. File could not be created.\nError:',error)  
             return res.status(500).send({ success: true, message: 'Something went wrong. File could not be created' });
         }
     }
@@ -75,7 +80,7 @@ export class FileController {
             return res.status(400).send({ success: false, message: 'No such file.' });
 
         } catch (error) {
-            // TODO:logError
+            this.logger.error('Something went wrong. File could not be deleted.\nError:',error)  
             return res.status(500).send({ success: false, message: 'Something went wrong. File could not be deleted.' });
         }
     }
@@ -83,15 +88,11 @@ export class FileController {
     public async viewAllFiles(req: Request, res: Response) {
 
         try {
-
-
-
-
             const files = await this.fileManager.viewFiles(req.query.id, { '$ne': '.' });
             return res.send(files);
 
         } catch (error) {
-            // TODO:logError
+            this.logger.error('Server failed during file retrieval.\nError:',error)  
             return res.status(500).send({ success: false, message: 'Server failed during file retrieval' });
 
         }
@@ -108,7 +109,7 @@ export class FileController {
 
         } catch (error) {
 
-            // TODO:logError
+            this.logger.error('Error in viewing files.\nError:',error)  
           
             return res.status(500).send({ success: false , message: 'Error in viewing files.'});
 
@@ -129,8 +130,8 @@ export class FileController {
 
         } catch (error) {
 
-            // TODO:logError
-            res.status(500).send({ success: false, message: 'Error in file renderring' })
+            this.logger.error('Error in file renderring.\nError:',error)  
+            res.status(500).send({ success: false, message: 'Error in file renderring.' })
 
         }
     }

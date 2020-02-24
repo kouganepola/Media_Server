@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '@services/';
 import { BlankLayoutCardComponent } from '../../../ui';
+import { User } from 'app/models/user';
 
 
 @Component({
@@ -50,9 +51,16 @@ export class LoginComponent extends BlankLayoutCardComponent implements OnInit {
 
             this.authService.login(this.loginForm.getRawValue()).subscribe(res => {
              
-
+              if (res instanceof User){
               this.router.navigate(['../../app', localStorage.getItem('username'), 'myfiles', localStorage.getItem('root')], { relativeTo: this.route });
 
+              }else{
+
+
+                this.password.reset();
+              this.username.reset();
+              this.error = res;
+              }
             }, loginErr => {
 
               let response = loginErr.error;

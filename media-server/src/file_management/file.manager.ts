@@ -3,6 +3,7 @@ import { ObjectID, GridFSBucket } from 'mongodb';
 import fs from 'fs';
 import mongoose from 'mongoose';
 import path from 'path';
+import * as log4js from 'log4js';
 
 export class FileManager {
 
@@ -10,10 +11,14 @@ export class FileManager {
     private FILES_COL = 'directory.files';
 
     private bucket:GridFSBucket;
+    private logger:any;
 
 
 
+    constructor(){
+        this.logger = log4js.getLogger();
 
+    }
 
 
 
@@ -44,13 +49,14 @@ export class FileManager {
                 tempFile.on('open', () => {
 
                     tempFile.write(streamPath);
-                    // TODO : log successful event
+                    this.logger.info("Successful tempfile creation: ",fileName);
+                    
                 })
 
                const bucket = new GridFSBucket(mongoose.connection.db, { bucketName: 'directory' });
                 const uploadStream = bucket.openUploadStream(fileName);
                 fileID = uploadStream.id;
-                // TODO : update file path
+                
 
                 fs.createReadStream(path.join(__dirname, '../../temp', fileName)).pipe(uploadStream).on('finish', () => {
 
@@ -58,7 +64,7 @@ export class FileManager {
                     fs.unlink(path.join(__dirname, '../../temp', fileName), (err) => {
 
                         if (err) throw err;
-                        // TODO : log successful event
+                        this.logger.info("Successful tempfile deletion: ",fileName);
                     })
 
                 });
@@ -83,7 +89,7 @@ export class FileManager {
 
         } catch (error) {
 
-            // TODO:add logger
+            
             throw error;
 
         }
@@ -104,7 +110,7 @@ export class FileManager {
                 const bucket = new GridFSBucket(mongoose.connection.db, { bucketName: 'directory' });
                 bucket.delete(new ObjectID(file.fileID), err => {
                     if (err) throw err;
-                    // TODO : log successful event
+                    this.logger.info("Successful file deletion",file.fileID);
             })
 
                 return await File.findByIdAndDelete({ _id: file._id }).exec();
@@ -143,7 +149,7 @@ export class FileManager {
                     const bucket = new GridFSBucket(mongoose.connection.db, { bucketName: 'directory' });
                     bucket.delete(new ObjectID(file.fileID), err => {
                         if (err) throw err;
-                        // TODO : log successful event
+                        this.logger.info("Successful file deletion",file.fileID);
 
                     })
 
